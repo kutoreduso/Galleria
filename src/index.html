@@ -1,35 +1,170 @@
 <!doctype html>
-<html>
+<html class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="../dist/output.css" rel="stylesheet">
 </head>
-<body>
+<body class="min-h-screen">
 
-  <div>
-    <nav class="md:p-8">
-        <div class="flex relative justify-between md:p-2">
-            <a href="index.html" class="uppercase font-inria font-bold">KURT.CANTIGA</a>
-             <div class="flex flex-row relative space-x-16 uppercase font-medium ">
-            <a href="#" class="">PROJECT</a>
+  <div class="">
+    <nav class="p-4 md:p-8 sticky top-0 z-50 bg-white/90 backdrop-blur-sm">
+    <div class="flex relative justify-between items-center md:p-2">
+        <a href="index.html" class="uppercase font-inria font-bold text-sm md:text-base relative z-50">KURT.CANTIGA</a>
+        
+        <div class="hidden md:flex flex-row relative space-x-16 uppercase font-medium font-inria">
+            <a href="#services">SERVICES</a>
+            <a href="#">PROJECT</a>
             <a href="#">ART GALLERY</a>
             <a href="#">About</a>
             <a href="#">SOCIALS</a>
         </div>
-        </div>
-    </nav> 
+
+        <button 
+            id="menu-btn"
+            type="button" 
+            aria-expanded="false" 
+            aria-controls="mobile-menu"
+            class="md:hidden relative w-8 h-6 z-50 flex flex-col justify-center items-end focus:outline-none"
+        >
+            <span class="sr-only">Open main menu</span>
+            <span id="line-1" class="absolute top-1 right-0 block w-8 h-[2px] bg-black transition-all duration-500 ease-in-out"></span>
+            <span id="line-2" class="absolute bottom-1 right-0 block w-6 h-[2px] bg-black transition-all duration-500 ease-in-out"></span>
+        </button>
+    </div>
+</nav>
+
+<div 
+    id="mobile-menu" 
+    class="fixed inset-0 bg-white z-40 flex flex-col justify-center opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out"
+>
+    <div id="menu-links" class="flex flex-col space-y-8 text-left px-8 translate-y-8 transition-transform duration-700 ease-out">
+        <a href="#" class="text-4xl font-inria font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors">SERVICES</a>
+        <a href="#" class="text-4xl font-inria font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors">PROJECT</a>
+        <a href="#" class="text-4xl font-inria font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors">ART GALLERY</a>
+        <a href="#" class="text-4xl font-inria font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors">About</a>
+        <a href="#" class="text-4xl font-inria font-bold uppercase tracking-widest text-black hover:text-gray-500 transition-colors">SOCIALS</a>
+    </div>
+</div>
+  <div class="p-4 md:p-8 font-inria ">
+    <h1 class="text-6xl md:text-9xl font-bold uppercase w-full md:w-4 pt-20 mt-10 md:mt-22">Kurt cantiga</h1>
   </div>
-  <div class="md:p-8 font-inria ">
-    <h1 class="md:text-9xl font-bold uppercase w-4 pt-7 mt-22">Kurt cantiga</h1>
-  </div>
-  <div class="md:p-8 font-inria flex justify-between">
-    <p class="font-light font-inria md:text-2xl mt-90">BASED IN PHILIPPINES</p>
-        <div class="md:mt-75 md:text-2xl uppercase">
+  <div class="p-4 md:p-8 font-inria flex flex-col md:flex-row justify-between">
+    <p class="font-light font-inria text-sm md:text-[20px] text-[15px] mt-45 md:mt-90">BASED IN PHILIPPINES</p>
+        <div class="mt-4 md:mt-75 text-sm md:text-[20px] text-[20px] uppercase">
             <ul>UI / UX DESIGNER</ul>
             <ul>WEB DESIGNER</ul>
             <ul>GRAPHIC DESIGNER</ul>
         </div>
   </div>
+
+  <div>
+    <div class="p-4 md:p-8 min-h-screen">
+        <div class="flex relative mt-10 md:mt-20">
+          <h1 class="font-inria font-bold uppercase sticky top-16 md:top-0 z-50 text-sm md:text-base">- INTRODUCTION</h1>
+        </div>
+
+        <div class="py-10 md:p-9 md:pl-59">
+          <h1 class="font-inria font-bold uppercase w-full md:w-200 text-4xl md:text-8xl">HI I'M Kurt</h1>
+          <p class="font-inria font-semibold uppercase w-full md:w-250 text-3xl md:text-7xl text-justify mt-4">I transform complex problems into elegant digital solutions. </p>
+        
+          <p class="font-inria font-normal uppercase text-justify text-base md:text-2xl w-full md:w-250 pt-10 md:pt-35">I have experience in UX Design and i do a system design & graphic design. I primarily build seamless digital interfaces by blending strategic user experiences with robust technical architecture.  </p>
+        </div>
+    </div>
+  </div>
+  <div class="" id="services">
+    <div class="p-4 md:p-8">
+        <a class="font-inria font-bold uppercase sticky top-16 md:top-0 z-50 text-sm md:text-base" >- SERVICES</a>
+    </div>
+    <div class="p-4 md:p-10">
+      <h1 class="font-inria font-bold uppercase w-full md:w-300 text-4xl md:text-7xl">Here's what i actually services</h1>
+    </div>
+  </div>
+   </div>
+   <script>
+    const btn = document.getElementById('menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    const menuLinks = document.getElementById('menu-links');
+    const line1 = document.getElementById('line-1');
+    const line2 = document.getElementById('line-2');
+
+    btn.addEventListener('click', () => {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isExpanded);
+
+        if (!isExpanded) {
+            // Open Menu: Fade in background, slide up text
+            menu.classList.remove('opacity-0', 'pointer-events-none');
+            menu.classList.add('opacity-100', 'pointer-events-auto');
+            
+            menuLinks.classList.remove('translate-y-8');
+            menuLinks.classList.add('translate-y-0');
+
+            // Animate Hamburger to 'X'
+            line1.classList.remove('top-1');
+            line1.classList.add('top-1/2', 'rotate-45', '-translate-y-1/2');
+            
+            line2.classList.remove('w-6', 'bottom-1');
+            line2.classList.add('w-8', 'top-1/2', '-rotate-45', '-translate-y-1/2');
+        } else {
+            // Close Menu: Fade out background, slide down text
+            menu.classList.add('opacity-0', 'pointer-events-none');
+            menu.classList.remove('opacity-100', 'pointer-events-auto');
+            
+            menuLinks.classList.add('translate-y-8');
+            menuLinks.classList.remove('translate-y-0');
+
+            // Animate 'X' back to Hamburger
+            line1.classList.add('top-1');
+            line1.classList.remove('top-1/2', 'rotate-45', '-translate-y-1/2');
+            
+            line2.classList.add('w-6', 'bottom-1');
+            line2.classList.remove('w-8', 'top-1/2', '-rotate-45', '-translate-y-1/2');
+        }
+    });
+    
+    // NEW: Grab all the mobile links you added the "mobile-link" class to
+    const mobileLinks = document.querySelectorAll('.mobile-link');
+
+    // Function to toggle the menu (we moved this into a reusable function)
+    function toggleMenu() {
+        const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', !isExpanded);
+
+        if (!isExpanded) {
+            menu.classList.remove('opacity-0', 'pointer-events-none');
+            menu.classList.add('opacity-100', 'pointer-events-auto');
+            menuLinks.classList.remove('translate-y-8');
+            menuLinks.classList.add('translate-y-0');
+            line1.classList.remove('top-1');
+            line1.classList.add('top-1/2', 'rotate-45', '-translate-y-1/2');
+            line2.classList.remove('w-6', 'bottom-1');
+            line2.classList.add('w-8', 'top-1/2', '-rotate-45', '-translate-y-1/2');
+        } else {
+            menu.classList.add('opacity-0', 'pointer-events-none');
+            menu.classList.remove('opacity-100', 'pointer-events-auto');
+            menuLinks.classList.add('translate-y-8');
+            menuLinks.classList.remove('translate-y-0');
+            line1.classList.add('top-1');
+            line1.classList.remove('top-1/2', 'rotate-45', '-translate-y-1/2');
+            line2.classList.add('w-6', 'bottom-1');
+            line2.classList.remove('w-8', 'top-1/2', '-rotate-45', '-translate-y-1/2');
+        }
+    }
+
+    // Click event for the hamburger button
+    btn.addEventListener('click', toggleMenu);
+
+    // NEW: Click event for each mobile link to close the menu when clicked
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            if (btn.getAttribute('aria-expanded') === 'true') {
+                toggleMenu();
+            }
+        });
+    });
+</script>
+</body>
+</html>
 </body>
 </html>
